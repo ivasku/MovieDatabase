@@ -23,4 +23,8 @@ class MovieRepositoryImpl @Inject constructor(
     override suspend fun getMovieDetails(movieId: Int): MovieDetailsDomain {
         return api.getMovieDetails(movieId, apiKey).toDomainModel()
     }
+
+    override suspend fun getTopRatedMovies(): List<MovieDomain> {
+        return api.getTopRatedMovies(apiKey).results.map { it.toDomainModel() }
+    }
 }

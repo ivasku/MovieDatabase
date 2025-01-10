@@ -21,4 +21,7 @@ interface TMDBApi {
         @Path("movie_id") movieId: Int,
         @Query("api_key") apiKey: String
     ): MovieDetails
+
+    @GET("movie/top_rated")
+    suspend fun getTopRatedMovies(@Query("api_key") apiKey: String): MovieResponse
 }
